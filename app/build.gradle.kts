@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -32,7 +34,21 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
         viewBinding = true
+    }
+
+    buildTypes.configureEach {
+        buildConfigField(
+            "String",
+            "SUPABASE_URL",
+            "\"${providers.gradleProperty("supabaseUrl").orNull.orEmpty()}\""
+        )
+        buildConfigField(
+            "String",
+            "SUPABASE_ANON_KEY",
+            "\"${providers.gradleProperty("supabaseAnonKey").orNull.orEmpty()}\""
+        )
     }
 }
 
@@ -51,6 +67,11 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     debugImplementation(libs.androidx.compose.ui.tooling)
+    implementation(libs.hilt.android)
+    implementation(platform(libs.supabase.bom))
+    implementation(libs.supabase.postgrest)
+    implementation(libs.ktor.client.android)
+    ksp(libs.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
