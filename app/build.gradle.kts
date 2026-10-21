@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.ksp)
@@ -63,6 +64,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.material)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
