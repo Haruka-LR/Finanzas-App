@@ -1,12 +1,16 @@
 package com.example.finanzasapp.data.repository
 
 import com.example.finanzasapp.data.model.CategoryTotal
+import com.example.finanzasapp.data.model.Expense
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class CategoryRepository {
+@Singleton
+class CategoryRepository @Inject constructor() {
 
-    fun getCategoryTotals(expenses: List<com.example.finanzasapp.data.model.Expense>): Flow<List<CategoryTotal>> = flow {
+    fun getCategoryTotals(expenses: List<Expense>): Flow<List<CategoryTotal>> = flow {
         val totals = expenses
             .groupBy { it.category }
             .map { (category, items) ->

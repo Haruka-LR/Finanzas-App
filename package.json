@@ -1,0 +1,10 @@
+{
+  "name": "finanzas-app",
+  "version": "1.0.0",
+  "description": "Sistema de Finanzas Personales para Android, Wear OS y MySQL",
+  "scripts": {
+    "start": "npm start --prefix backend",
+    "backend": "npm start --prefix backend",
+    "web": "npx --yes serve landing -p 8080"
+  }
+}

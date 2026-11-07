@@ -1,11 +1,11 @@
 package com.example.finanzasapp.di
 
-import com.example.finanzasapp.data.FinanzasRepository
+import com.example.finanzasapp.data.repository.CategoryRepository
+import com.example.finanzasapp.data.repository.ExpenseRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.github.jan.supabase.SupabaseClient
 import javax.inject.Singleton
 
 @Module
@@ -14,7 +14,9 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideFinanzasRepository(
-        supabaseClient: SupabaseClient
-    ): FinanzasRepository = FinanzasRepository(supabaseClient)
+    fun provideExpenseRepository(): ExpenseRepository = ExpenseRepository()
+
+    @Provides
+    @Singleton
+    fun provideCategoryRepository(): CategoryRepository = CategoryRepository()
 }

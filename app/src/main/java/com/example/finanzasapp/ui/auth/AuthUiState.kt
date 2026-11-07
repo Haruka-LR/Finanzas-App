@@ -1,3 +1,5 @@
+package com.example.finanzasapp.ui.auth
+
 sealed interface AuthUiState {
     object Idle : AuthUiState
     object Loading : AuthUiState

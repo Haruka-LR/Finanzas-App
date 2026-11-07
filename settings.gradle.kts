@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "FinanzasAPp"
 include(":app")
+include(":wear")

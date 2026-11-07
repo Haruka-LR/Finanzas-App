@@ -1,50 +1,57 @@
 package com.example.finanzasapp.ui.navigation
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
+import com.example.finanzasapp.data.repository.CategoryRepository
+import com.example.finanzasapp.data.repository.ExpenseRepository
+import com.example.finanzasapp.ui.budgets.BudgetsScreen
+import com.example.finanzasapp.ui.categories.CategoriesScreen
+import com.example.finanzasapp.ui.home.HomeScreen
+import com.example.finanzasapp.ui.home.HomeViewModel
+import com.example.finanzasapp.ui.home.HomeViewModelFactory
+import com.example.finanzasapp.ui.statistics.StatisticsScreen
 
 @Composable
 fun NavGraph(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
+    val expenseRepository = remember { ExpenseRepository() }
+    val categoryRepository = remember { CategoryRepository() }
+    val homeViewModel: HomeViewModel = viewModel(
+        factory = HomeViewModelFactory(expenseRepository, categoryRepository)
+    )
+
     NavHost(
         navController = navController,
         startDestination = Screen.Home.route,
         modifier = modifier
     ) {
-        composable(Screen.Home.route) { DestinationScreen("Inicio") }
-        composable(Screen.AddExpense.route) { DestinationScreen("Agregar gasto") }
-        composable(
-            route = Screen.EditExpense.route,
-            arguments = listOf(navArgument("expenseId") { type = NavType.StringType })
-        ) { backStackEntry ->
-            DestinationScreen("Editar gasto ${backStackEntry.arguments?.getString("expenseId")}")
+        composable(Screen.Home.route) {
+            HomeScreen(
+                viewModel = homeViewModel,
+                expenseRepository = expenseRepository,
+                onNavigateToAddExpense = {
+                    navController.navigate(Screen.AddExpense.route)
+                }
+            )
         }
-        composable(Screen.Statistics.route) { DestinationScreen("Estadísticas") }
-        composable(Screen.Categories.route) { DestinationScreen("Categorías") }
-        composable(Screen.Budgets.route) { DestinationScreen("Presupuestos") }
-    }
-}
 
-@Composable
-private fun DestinationScreen(title: String) {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(text = title, style = MaterialTheme.typography.headlineSmall)
+        composable(Screen.Statistics.route) {
+            StatisticsScreen(expenseRepository = expenseRepository)
+        }
+
+        composable(Screen.Categories.route) {
+            CategoriesScreen()
+        }
+
+        composable(Screen.Budgets.route) {
+            BudgetsScreen()
+        }
     }
 }
