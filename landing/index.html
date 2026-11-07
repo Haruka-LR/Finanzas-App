@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es" data-edition="wearable">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanzas 1.0 · Amaterasu — Control financiero en Android y Wear OS</title>
+  <meta name="description" content="Sistema financiero integral para Android y Smartwatch Wear OS, respaldado por base de datos MySQL y arquitectura sin suscripciones. Estilo Ryoku.">
+  
+  <!-- Tipografía: Fraunces, Space Grotesk, Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background Watermark Kanji -->
+  <div class="watermark-kanji" aria-hidden="true">力</div>
+
+  <!-- Header Sticky (Estilo Ryoku: 3 columnas) -->
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__brand">
+        <a href="#top" class="brand-link">
+          <span class="brand-seal">力</span>
+          <span class="brand-name">Finanzas<span class="brand-ver">1.0</span></span>
+        </a>
+      </div>
+
+      <nav class="header__nav">
+        <a href="#gallery">Showroom</a>
+        <a href="#manifesto">Manifiesto</a>
+        <a href="#included">Tecnología</a>
+        <a href="#wearable">Wear OS</a>
+        <a href="#mysql">MySQL</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+
+      <div class="header__actions">
+        <span class="edition-tag">v1.0.0 · APK</span>
+        <a href="#install" class="btn btn--header">Instalar App</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section Index Rail Lateral (Ryoku 00..06) -->
+  <aside class="section-rail" aria-label="Navegación de secciones">
+    <a href="#top" class="rail-item active" data-sec="00"><span class="rail-num">00</span><span class="rail-label">Portada</span></a>
+    <a href="#gallery" class="rail-item" data-sec="01"><span class="rail-num">01</span><span class="rail-label">Showroom</span></a>
+    <a href="#manifesto" class="rail-item" data-sec="02"><span class="rail-num">02</span><span class="rail-label">Manifiesto</span></a>
+    <a href="#included" class="rail-item" data-sec="03"><span class="rail-num">03</span><span class="rail-label">Módulos</span></a>
+    <a href="#wearable" class="rail-item" data-sec="04"><span class="rail-num">04</span><span class="rail-label">Wear OS</span></a>
+    <a href="#mysql" class="rail-item" data-sec="05"><span class="rail-num">05</span><span class="rail-label">Base MySQL</span></a>
+    <a href="#faq" class="rail-item" data-sec="06"><span class="rail-num">06</span><span class="rail-label">FAQ</span></a>
+  </aside>
+
+  <main>
+    <!-- HERO SECTION (00) -->
+    <section id="top" class="hero section">
+      <div class="hero__sheet sheet-head">
+        <span class="sheet-head__num">00 // PORTADA</span>
+        <span class="sheet-head__kanji">力</span>
+      </div>
+
+      <div class="hero__badge">
+        <span class="pill-dot"></span> Finanzas 1.0 · Motor Amaterasu · Wear OS + Android + MySQL
+      </div>
+
+      <h1 class="hero__title">
+        力と美のために<br>
+        <span class="title-sub">Tu dinero en tu muñeca, tu control en tu bolsillo.</span>
+      </h1>
+
+      <p class="hero__lead">
+        Un sistema financiero personal completo, no otra plantilla de gastos genérica. 
+        Pantalla en Jetpack Compose, módulo nativo para smartwatch Wear OS, y servidor propio respaldado por <strong>MySQL 8.0</strong>.
+      </p>
+
+      <!-- Terminal Action Box -->
+      <div class="hero__command-box">
+        <div class="command-box__label">
+          <span class="dot-live"></span> SINCRONIZACIÓN WEARABLE EN TIEMPO REAL
+        </div>
+        <div class="command-box__code">
+          <code>finanzas wearable sync --device=galaxy-watch --backend=mysql</code>
+          <button class="copy-btn" id="copyCmd" title="Copiar comando">Copiar</button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Strip -->
+      <div class="metrics-strip">
+        <div class="metric-item">
+          <span class="metric-val">0.00$</span>
+          <span class="metric-label">Suscripciones</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-val">&lt; 2s</span>
+          <span class="metric-label">Gasto en Watch</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-val">100%</span>
+          <span class="metric-label">Tus Datos en MySQL</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-val">Wear 3+</span>
+          <span class="metric-label">Tiles & Complications</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: SHOWROOM (Míralo en Acción) -->
+    <section id="gallery" class="showroom section">
+      <div class="sheet-head">
+        <span class="sheet-head__num">01 // SHOWROOM</span>
+        <span class="sheet-head__title">Míralo funcionando en dos pantallas.</span>
+        <span class="sheet-head__kanji">見</span>
+      </div>
+
+      <div class="showroom__grid">
+        <!-- Phone Device Mockup -->
+        <div class="device-card device-card--phone plate--tick">
+          <div class="tick tl"></div><div class="tick tr"></div><div class="tick bl"></div><div class="tick br"></div>
+          <div class="device-card__head">
+            <span class="tag">ANDROID JETPACK COMPOSE</span>
+            <span class="status-live">● EN VIVO</span>
+          </div>
+          <div class="phone-screen">
+            <div class="screen-header">
+              <span class="app-chip">力 FINANZAS</span>
+              <span class="screen-time">17:42</span>
+            </div>
+            <div class="balance-widget">
+              <span class="b-label">Balance Total</span>
+              <span class="b-val">$14,850.00 MXN</span>
+              <span class="b-sub">↑ +$2,300 este mes en cuenta débito</span>
+            </div>
+            <div class="category-bars">
+              <div class="cat-bar"><span class="cat-name">Comida</span><span class="cat-pct">45%</span><div class="bar-fill" style="width:45%"></div></div>
+              <div class="cat-bar"><span class="cat-name">Transporte</span><span class="cat-pct">25%</span><div class="bar-fill" style="width:25%"></div></div>
+              <div class="cat-bar"><span class="cat-name">Servicios</span><span class="cat-pct">18%</span><div class="bar-fill" style="width:18%"></div></div>
+            </div>
+            <div class="recent-list">
+              <div class="recent-row"><span>🍽️ Supermercado</span><strong>-$1,250</strong></div>
+              <div class="recent-row"><span>🚗 Gasolina Shell</span><strong>-$450</strong></div>
+              <div class="recent-row"><span>💼 Nómina Quincenal</span><strong class="inc">+$18,000</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smartwatch Device Mockup -->
+        <div class="device-card device-card--watch plate--tick">
+          <div class="tick tl"></div><div class="tick tr"></div><div class="tick bl"></div><div class="tick br"></div>
+          <div class="device-card__head">
+            <span class="tag">WEAR OS 3.0+ SMARTWATCH</span>
+            <span class="status-live">● VINCULADO</span>
+          </div>
+          <div class="watch-screen">
+            <div class="watch-bezel">
+              <div class="watch-face">
+                <span class="w-chip">⌚ FINANZAS</span>
+                <span class="w-bal">$14,850</span>
+                <span class="w-today">Hoy: -$350</span>
+                <div class="watch-actions">
+                  <button class="watch-btn" id="watchQuickAdd" title="Registrar gasto de prueba">+ Gasto</button>
+                  <button class="watch-btn watch-btn--sec" id="watchSync" title="Simular sincronización">Sync</button>
+                </div>
+                <div class="watch-toast" id="watchToast">✓ Guardado en MySQL</div>
+              </div>
+            </div>
+          </div>
+          <p class="watch-caption">Pulsa <strong>+ Gasto</strong> en la carátula para probar la respuesta táctil instantánea.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: MANIFIESTO (02) -->
+    <section id="manifesto" class="manifesto section">
+      <div class="sheet-head">
+        <span class="sheet-head__num">02 // MANIFIESTO</span>
+        <span class="sheet-head__title">Una arquitectura real, no humo.</span>
+        <span class="sheet-head__kanji">道</span>
+      </div>
+
+      <div class="manifesto__grid">
+        <div class="manifesto-card plate--tick">
+          <div class="tick tl"></div><div class="tick tr"></div><div class="tick bl"></div><div class="tick br"></div>
+          <div class="card-kanji">換</div>
+          <h3 class="card-title">Mismo flujo, en la muñeca o en el teléfono.</h3>
+          <p class="card-text">
+            Si estás en la fila del supermercado o en la gasolinera, no saques el celular. Dos toques en tu reloj y el gasto queda asentado en tu base de datos central en menos de dos segundos.
+          </p>
+        </div>
+
+        <div class="manifesto-card plate--tick">
+          <div class="tick tl"></div><div class="tick tr"></div><div class="tick bl"></div><div class="tick br"></div>
+          <div class="card-kanji">家</div>
+          <h3 class="card-title">Tus datos en tu MySQL, nunca en silos privados.</h3>
+          <p class="card-text">
+            No dependes de suscripciones mensuales de $10 USD para ver gráficas. El motor conecta a tu MySQL local o en tu propio VPS con aislamiento estricto por usuario y tokens JWT cifrados.
+          </p>
+        </div>
+
+        <div class="manifesto-card plate--tick">
+          <div class="tick tl"></div><div class="tick tr"></div><div class="tick bl"></div><div class="tick br"></div>
+          <div class="card-kanji">人</div>
+          <h3 class="card-title">Cero bloatware, máxima velocidad.</h3>
+          <p class="card-text">
+            Construido con Jetpack Compose puro y Kotlin nativo. Sin webviews pesadas ni navegadores encapsulados; la app responde al instante y cuida la batería de tu smartwatch OLED con fondos negro puro `#000000`.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: ESPECIFICACIONES TÉCNICAS (03) -->
+    <section id="included" class="manifest-spec section">
+      <div class="sheet-head">
+        <span class="sheet-head__num">03 // INGENIERÍA</span>
+        <span class="sheet-head__title">Todo lo integrado en el proyecto.</span>
+        <span class="sheet-head__kanji">蔵</span>
+      </div>
+
+      <div class="specs-grid">
+        <div class="spec-column plate--tick">
+          <div class="tick tl"></div><div class="tick tr"></div><div class="tick bl"></div><div class="tick br"></div>
+          <h4 class="spec-col-title">📱 App Android (Módulo :app)</h4>
+          <ul class="spec-list">
+            <li><span class="spec-k">UI Toolkit</span><span class="spec-lead"></span><span class="spec-v">Jetpack Compose + Material 3</span></li>
+            <li><span class="spec-k">Inyección DI</span><span class="spec-lead"></span><span class="spec-v">Dagger Hilt 2.60 + KSP</span></li>
+            <li><span class="spec-k">Navegación</span><span class="spec-lead"></span><span class="spec-v">Compose Navigation 4 Tabs</span></li>
+            <li><span class="spec-k">Estado Reactivo</span><span class="spec-lead"></span><span class="spec-v">StateFlow + Coroutines</span></li>
+            <li><span class="spec-k">Estadísticas</span><span class="spec-lead"></span><span class="spec-v">Desglose porcentual y barras</span></li>
+            <li><span class="spec-k">Alertas</span><span class="spec-lead"></span><span class="spec-v">Aviso de tope presupuestario 80%</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-column plate--tick">
+          <div class="tick tl"></div><div class="tick tr"></div><div class="tick bl"></div><div class="tick br"></div>
+          <h4 class="spec-col-title">⌚ Módulo Wearable (Módulo :wear)</h4>
+          <ul class="spec-list">
+            <li><span class="spec-k">Plataforma</span><span class="spec-lead"></span><span class="spec-v">Wear OS 3.0+ (Min SDK 30)</span></li>
+            <li><span class="spec-k">UI Smartwatch</span><span class="spec-lead"></span><span class="spec-v">Compose for Wear + AnimatedContent</span></li>
+            <li><span class="spec-k">Tiles API</span><span class="spec-lead"></span><span class="spec-v">Widget en carátula del reloj</span></li>
+            <li><span class="spec-k">Gasto Rápido</span><span class="spec-lead"></span><span class="spec-v">Presets 1-tap (Café, Uber, etc.)</span></li>
+            <li><span class="spec-k">Optimización</span><span class="spec-lead"></span><span class="spec-v">OLED True Black `#000000`</span></li>
+            <li><span class="spec-k">Modo Autónomo</span><span class="spec-lead"></span><span class="spec-v">Standalone meta-data configurado</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-column plate--tick">
+          <div class="tick tl"></div><div class="tick tr"></div><div class="tick bl"></div><div class="tick br"></div>
+          <h4 class="spec-col-title">🗄️ Backend & Base de Datos MySQL</h4>
+          <ul class="spec-list">
+            <li><span class="spec-k">Base de datos</span><span class="spec-lead"></span><span class="spec-v">MySQL 8.0+ InnoDB UTF8MB4</span></li>
+            <li><span class="spec-k">Tablas</span><span class="spec-lead"></span><span class="spec-v">8 tablas con foreign keys en cascada</span></li>
+            <li><span class="spec-k">API Server</span><span class="spec-lead"></span><span class="spec-v">Node / Ktor REST Endpoints</span></li>
+            <li><span class="spec-k">Autenticación</span><span class="spec-lead"></span><span class="spec-v">JWT Refresh tokens para móvil y watch</span></li>
+            <li><span class="spec-k">Device Source</span><span class="spec-lead"></span><span class="spec-v">Trazabilidad `PHONE` vs `WEARABLE`</span></li>
+            <li><span class="spec-k">Seeds</span><span class="spec-lead"></span><span class="spec-v">11 categorías pre-cargadas</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: WEAR OS LIVE DEMO (04) -->
+    <section id="wearable" class="wearable-spotlight section">
+      <div class="sheet-head">
+        <span class="sheet-head__num">04 // WEARABLE</span>
+        <span class="sheet-head__title">Diseñado específicamente para tu reloj.</span>
+        <span class="sheet-head__kanji">腕</span>
+      </div>
+
+      <div class="wear-dossier plate--tick">
+        <div class="tick tl"></div><div class="tick tr"></div><div class="tick bl"></div><div class="tick br"></div>
+        <div class="wear-dossier__content">
+          <span class="mono-tag">04 // HOROLOGIST & TILES</span>
+          <h3 class="wear-title">Registro express sin distracciones.</h3>
+          <p class="wear-text">
+            El módulo <code>:wear</code> de FinanzasApp no es una copia reducida de la aplicación del teléfono: está diseñado para micro-interacciones de 3 a 5 segundos con tipografía de alto contraste legible bajo la luz del sol.
+          </p>
+          <div class="wear-features">
+            <div class="wf-item"><strong>Carátulas (Tiles)</strong> Consulta tu balance sin abrir la app con un simple deslizamiento lateral.</div>
+            <div class="wf-item"><strong>Complications</strong> Incrusta tu porcentaje de presupuesto restante directamente en tus watch faces favoritas.</div>
+            <div class="wf-item"><strong>Sincronización Dual</strong> Vía Bluetooth Data Layer cuando el teléfono está cerca, o WiFi directo cuando estás corriendo.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05: MYSQL & SELF-HOSTING (05) -->
+    <section id="mysql" class="mysql-spotlight section">
+      <div class="sheet-head">
+        <span class="sheet-head__num">05 // BASE DE DATOS</span>
+        <span class="sheet-head__title">MySQL: robustez relacional garantizada.</span>
+        <span class="sheet-head__kanji">基</span>
+      </div>
+
+      <div class="sql-preview plate--tick">
+        <div class="tick tl"></div><div class="tick tr"></div><div class="tick bl"></div><div class="tick br"></div>
+        <div class="sql-header">
+          <span>backend/schema.sql</span>
+          <span class="badge-sql">MySQL 8.0</span>
+        </div>
+        <pre class="code-block"><code>-- Esquema relacional con trazabilidad de wearable
+CREATE TABLE transactions (
+    id              BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id         BIGINT UNSIGNED NOT NULL,
+    account_id      BIGINT UNSIGNED NOT NULL,
+    category_id     BIGINT UNSIGNED NULL,
+    type            ENUM('INCOME', 'EXPENSE', 'TRANSFER') NOT NULL,
+    amount          DECIMAL(15,2)   NOT NULL,
+    description     VARCHAR(255)    NOT NULL,
+    date            DATE            NOT NULL,
+    device_source   VARCHAR(50)     NOT NULL DEFAULT 'PHONE', -- 'PHONE' / 'WEARABLE_WATCH'
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;</code></pre>
+      </div>
+    </section>
+
+    <!-- SECTION 06: FAQ ACCORDION (06) -->
+    <section id="faq" class="faq section">
+      <div class="sheet-head">
+        <span class="sheet-head__num">06 // PREGUNTAS</span>
+        <span class="sheet-head__title">Preguntas frecuentes.</span>
+        <span class="sheet-head__kanji">問</span>
+      </div>
+
+      <div class="faq__container">
+        <details class="faq-item plate--tick">
+          <summary class="faq-summary">
+            <span class="faq-q">¿Necesito tener mi reloj conectado a internet para registrar un gasto?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            No. El reloj guarda los gastos de forma local e instantánea, y en cuanto recupera la conexión Bluetooth con tu teléfono o red WiFi, sincroniza los cambios pendientes con la base de datos MySQL.
+          </div>
+        </details>
+
+        <details class="faq-item plate--tick">
+          <summary class="faq-summary">
+            <span class="faq-q">¿Por qué MySQL en lugar de Firebase o Supabase?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            MySQL te otorga soberanía total sobre tus datos financieros: puedes alojarlo en tu propia Raspberry Pi, tu servidor VPS personal o en tu computadora local. Sin cuotas mensuales ni riesgos de que un servicio en la nube cierre tu cuenta.
+          </div>
+        </details>
+
+        <details class="faq-item plate--tick">
+          <summary class="faq-summary">
+            <span class="faq-q">¿Qué modelos de smartwatch son compatibles?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Cualquier reloj con Wear OS 3.0 o superior, incluidos Samsung Galaxy Watch 4/5/6/7, Google Pixel Watch 1/2/3, Xiaomi Watch 2 Pro, TicWatch Pro 5 y OnePlus Watch 2.
+          </div>
+        </details>
+
+        <details class="faq-item plate--tick">
+          <summary class="faq-summary">
+            <span class="faq-q">¿Cómo se instala y compila el proyecto?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Basta con abrir el proyecto en Android Studio. El módulo <code>:app</code> compila el APK del teléfono y el módulo <code>:wear</code> compila la versión para el reloj. Para el backend, ejecutas <code>npm start</code> en la carpeta <code>backend/</code>.
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER ESTILO RYOKU -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand-block">
+        <span class="footer-seal">力</span>
+        <h2 class="footer-motto">力と美のために<br>Por el poder y la belleza del código bien hecho.</h2>
+        <p class="footer-sub">Finanzas 1.0 · Android + Wear OS + MySQL</p>
+      </div>
+
+      <div class="footer__cols">
+        <div class="footer-col">
+          <span class="col-head">Módulos</span>
+          <a href="#top">Android App (:app)</a>
+          <a href="#wearable">Wear OS (:wear)</a>
+          <a href="#mysql">Backend MySQL</a>
+        </div>
+        <div class="footer-col">
+          <span class="col-head">Documentación</span>
+          <a href="../COMPOSITOR.md">Compositor Técnico</a>
+          <a href="../PROMPT_MASTER_IA.md">Prompt para IA</a>
+          <a href="../backend/schema.sql">Esquema SQL</a>
+        </div>
+        <div class="footer-col">
+          <span class="col-head">Créditos de Estilo</span>
+          <a href="https://ryoku.dev/" target="_blank" rel="noopener">Inspirado en ryoku.dev</a>
+          <a href="https://github.com" target="_blank" rel="noopener">Código Abierto</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mega Watermark Typography -->
+    <div class="footer__huge-watermark" aria-hidden="true">
+      FINANZAS
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Finanzas App · Hecho con precisión en México</span>
+      <span>Base relacional MySQL · Jetpack Compose · Wear OS 3+</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

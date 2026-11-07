@@ -1,0 +1,17 @@
+{
+  "name": "finanzas-backend-api",
+  "version": "1.0.0",
+  "description": "API REST en Node.js y MySQL para Finanzas-App y Wear OS Smartwatch",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.8"
+  }
+}
